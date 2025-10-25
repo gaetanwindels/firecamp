@@ -8,7 +8,7 @@ public class ParallaxLayer : MonoBehaviour
     [SerializeField] private float layerSpeedY = 10;
     [SerializeField] private GameObject layerToMove;
     
-    Camera _mainCamera;
+    private Camera _mainCamera;
     private Vector3 _initialCameraPosition;
     private Vector3 _initialPosition;
     
