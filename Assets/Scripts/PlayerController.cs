@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
         ManageRockPower();
     }
 
+    public void SetEnabled(bool enabled)
+    {
+        isActive = enabled;
+        _rigidBody.velocity = Vector2.zero;
+    }
+
     void CheckTouching()
     {
         float moveAxis = _rwPlayer.GetAxis("Move");
