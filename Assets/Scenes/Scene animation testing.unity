@@ -665,7 +665,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1248,7 +1248,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1752,9 +1752,9 @@ ParticleSystem:
     fps: 30
     frameOverTime:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 3
       scalar: 0.9999
-      minScalar: 0.9999
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1859,13 +1859,19 @@ ParticleSystem:
     speedRange: {x: 0, y: 1}
     tilesX: 1
     tilesY: 1
-    animationType: 0
+    animationType: 1
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
     rowMode: 1
     sprites:
     - sprite: {fileID: 21300000, guid: 20562f1d48de00c449b731f2541a1a90, type: 3}
+    - sprite: {fileID: 21300000, guid: 86d5e73094bd09a4c9741e6f84285589, type: 3}
+    - sprite: {fileID: 21300000, guid: 4443cb7ea4366e549b1fa86cb48befb8, type: 3}
+    - sprite: {fileID: 21300000, guid: 2d421391da65d4a4ba75228ab279fafc, type: 3}
+    - sprite: {fileID: 21300000, guid: 97a42d0ecf1e15b42b1b2ae86af3a278, type: 3}
+    - sprite: {fileID: 21300000, guid: 2781cc238711a6f4882d2d9156e97fb1, type: 3}
+    - sprite: {fileID: 21300000, guid: 73bd0af8c0cbebc4b826295fbf9ba7c6, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -1979,7 +1985,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 3
-      scalar: -4
+      scalar: -5
       minScalar: -2
       maxCurve:
         serializedVersion: 2
@@ -3766,7 +3772,7 @@ ParticleSystem:
     range: {x: 0, y: 1}
     separateAxes: 0
   RotationBySpeedModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
