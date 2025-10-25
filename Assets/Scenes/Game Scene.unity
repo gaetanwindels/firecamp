@@ -182,7 +182,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Follow: {fileID: 9212200685299760905}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 10
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1037,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
       propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
       propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.size
@@ -1068,11 +1068,19 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._actionId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
       propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[3]._elementType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
       propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[4]._elementType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._elementType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
@@ -1084,6 +1092,10 @@ PrefabInstance:
       value: 274
       objectReference: {fileID: 0}
     - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._keyboardKeyCode
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
       propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[4]._axisContribution
       value: 1
       objectReference: {fileID: 0}
@@ -1093,6 +1105,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
       propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[4]._elementIdentifierId
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290319549557055295, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._elementIdentifierId
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5204105870219629280, guid: 610fbf6d2d46f624fb1a965d217117f2, type: 3}
@@ -1212,6 +1228,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5955832342272785373, guid: cf97cc0b9b4842344a980ab1c3fd4548, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9212200685299760904}
+    - targetCorrespondingSourceObject: {fileID: 5955832342272785373, guid: cf97cc0b9b4842344a980ab1c3fd4548, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9212200685299760906}
   m_SourcePrefab: {fileID: 100100000, guid: cf97cc0b9b4842344a980ab1c3fd4548, type: 3}
 --- !u!1 &9212200685299760899 stripped
 GameObject:
@@ -1259,7 +1278,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90662fc88a0d7c6459751528bc7028e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1346,23 +1365,45 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.018373057}
+  m_Offset: {x: -0.04599762, y: -1.9940225}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 5, y: 6.69}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.96325386}
+  m_Size: {x: 1.4139767, y: 2.6881645}
   m_EdgeRadius: 0
 --- !u!4 &9212200685299760905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 282598966208761811, guid: cf97cc0b9b4842344a980ab1c3fd4548, type: 3}
   m_PrefabInstance: {fileID: 9212200685299760898}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &9212200685299760906
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9212200685299760899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 914ecd2be70ae0544bf9ba68ae0f79d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
