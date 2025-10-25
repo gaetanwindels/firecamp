@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5d7319eb2a0427946b9e8a018ec6da6e
+guid: 20542352e3d603a438b3212bd44195e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -818166274577027750
-    second: Sprite-persos_0002s_0000s_0003_Adulte-3-cours-4_0
+      213: -8426488208273203066
+    second: Tas de feuilles 1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-persos_0002s_0000s_0003_Adulte-3-cours-4_0
+      name: Tas de feuilles 1_0
       rect:
         serializedVersion: 2
-        x: 175
+        x: 3
         y: 0
-        width: 208
-        height: 477
+        width: 386
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5da1acab1a45a4f0800000000000000
-      internalID: -818166274577027750
+      spriteID: 680abd9be991f0b80800000000000000
+      internalID: -8426488208273203066
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite-persos_0002s_0000s_0003_Adulte-3-cours-4_0: -818166274577027750
+      Tas de feuilles 1_0: -8426488208273203066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5d7319eb2a0427946b9e8a018ec6da6e
+guid: c3e2dd6fb5fee7040bc88fc77d6a7f1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -818166274577027750
-    second: Sprite-persos_0002s_0000s_0003_Adulte-3-cours-4_0
+      213: 262676933883552967
+    second: Menhur_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-persos_0002s_0000s_0003_Adulte-3-cours-4_0
+      name: Menhur_0
       rect:
         serializedVersion: 2
-        x: 175
+        x: 0
         y: 0
-        width: 208
-        height: 477
+        width: 206
+        height: 471
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5da1acab1a45a4f0800000000000000
-      internalID: -818166274577027750
+      spriteID: 7c461d6974735a300800000000000000
+      internalID: 262676933883552967
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite-persos_0002s_0000s_0003_Adulte-3-cours-4_0: -818166274577027750
+      Menhur_0: 262676933883552967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
