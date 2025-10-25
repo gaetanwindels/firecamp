@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float exitRockForce = 5f;
     
+    [SerializeField] private bool isActive;
+    
     // Cached variables
     private Rigidbody2D _rigidBody;
 
@@ -68,6 +70,11 @@ public class PlayerController : MonoBehaviour
 
     void ManageMove()
     {
+        if (!isActive)
+        {
+            return;
+        }
+        
         float moveAxis = _rwPlayer.GetAxis("Move");
         
         if (_isGrounded)
@@ -86,6 +93,11 @@ public class PlayerController : MonoBehaviour
 
     void ManageJump()
     {
+        if (!isActive)
+        {
+            return;
+        }
+        
         if (_isGrounded && _rwPlayer.GetButtonDown("Jump"))
         {
             _rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -115,7 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         float moveAxis = _rwPlayer.GetAxis("Move");
 
-        if (moveAxis != 0)
+        if (moveAxis != 0 && isActive)
         {
             transform.localScale = new Vector3(Mathf.Sign(moveAxis), transform.localScale.y, transform.localScale.z);
         }
