@@ -1,3 +1,4 @@
+using System.Collections;
 using Rewired;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
@@ -6,8 +7,16 @@ using Vector3 = UnityEngine.Vector3;
 public class PlayerController : MonoBehaviour
 {
     // Config parameters
+    [Header("Sounds")]
+    [SerializeField] public AudioClip walkingSound;
+    [SerializeField] public AudioClip climbingSound;
+    [SerializeField] public AudioClip jumpingSound;
+    
+    
+    [Header("Parameters")]
     [SerializeField] private float speed = 10f;
     [SerializeField] private float climbSpeed = 5f;
+    [SerializeField] private float timeExitingRock = 0.5f;
     
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float exitRockForce = 5f;
@@ -16,6 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isOld;
     
     // Cached variables
+    private AudioSource _audioSource;
+    
     private Rigidbody2D _rigidBody;
 
     private Animator _animator;
@@ -30,6 +41,7 @@ public class PlayerController : MonoBehaviour
     bool _isGrounded;
     bool _isTouchingRock;
     bool _rockPowerActivated;
+    bool _isExitingRock;
     private float _previousMoveAxis;
     private bool _previousTouchingRock;
     private bool _isGettingOld;
@@ -50,6 +62,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _collider = GetComponent<Collider2D>();
@@ -103,12 +116,20 @@ public class PlayerController : MonoBehaviour
         float moveAxis = _rwPlayer.GetAxis("Move");
         
         if (_isGrounded)
-        {
+        {   
+            _audioSource.clip = walkingSound;
+
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.loop = true;
+                _audioSource.Play(); 
+            }
+            
             _rigidBody.bodyType = RigidbodyType2D.Dynamic;
         }
 
-        var computeSpeed = _isGettingOld ? speed * 0.6f : speed;
-        computeSpeed = _isGettingVeryOld ? speed * 0.3f : computeSpeed;
+        var computeSpeed = _isGettingOld ? speed * 0.7f : speed;
+        computeSpeed = _isGettingVeryOld ? speed * 0.5f : computeSpeed;
         
         _rigidBody.velocity = new Vector2(_rwPlayer.GetAxis("Move") * computeSpeed, _rigidBody.velocity.y);
         
@@ -128,15 +149,30 @@ public class PlayerController : MonoBehaviour
         
         if (_isGrounded && _rwPlayer.GetButtonDown("Jump"))
         {
+            _audioSource.clip = jumpingSound;
+            _audioSource.Play();
+            _audioSource.loop = false;
             _rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
 
     void ManageClimb()
     {
+        if (_isExitingRock)
+        {
+            return;
+        }
+        
         if (_isTouchingRock && !_rockPowerActivated && !_isGrounded)
         {
             _rigidBody.bodyType = RigidbodyType2D.Kinematic;
+            _audioSource.clip = climbingSound;
+
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.loop = true;
+                _audioSource.Play();
+            }
             _rigidBody.velocity = new Vector2(0, _rwPlayer.GetAxis("Climb") * climbSpeed);
         }
 
@@ -147,6 +183,8 @@ public class PlayerController : MonoBehaviour
 
         if (_previousTouchingRock && !_isTouchingRock)
         {
+            _isExitingRock = true;
+            StartCoroutine(ExitingRock());
             _rigidBody.AddForce(Vector2.up * exitRockForce, ForceMode2D.Impulse);
         }
     }
@@ -162,13 +200,14 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetBool("IsRunning", moveAxis != 0 && isActive);
         _animator.SetBool("IsJumping", !_isGrounded && !_isTouchingRock);
-        _animator.SetBool("IsOnRock", _isTouchingRock);
-        _animator.SetBool("IsClimbing", _isTouchingRock && _rigidBody.velocity.y != 0);
+        _animator.SetBool("IsOnRock", !_isGrounded && _isTouchingRock);
+        _animator.SetBool("IsClimbing", !_isGrounded && _isTouchingRock && _rigidBody.velocity.y != 0);
         
     }
     
     void ManageRockPower()
     {
+        return;
         if (_rwPlayer.GetButtonDown("RockPower"))
         {
             _rockPowerActivated = !_rockPowerActivated;
@@ -178,5 +217,11 @@ public class PlayerController : MonoBehaviour
                 rock.ToggleState();
             }
         }
+    }
+    
+    IEnumerator ExitingRock()
+    {
+        yield return new WaitForSeconds(timeExitingRock);
+        _isExitingRock = false;
     }
 }
