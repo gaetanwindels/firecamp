@@ -140,18 +140,6 @@ public class PlayerController : MonoBehaviour
         }
         
         _rigidBody.velocity = new Vector2(_rwPlayer.GetAxis("Move") * computeSpeed, _rigidBody.velocity.y);
-
-        if (_isGrounded && _rigidBody.velocity.y == 0 && moveAxis != 0)
-        {
-            _audioSource.clip = walkingSound;
-            _audioSource.loop = true;
-            _audioSource.Play(); 
-        }
-
-        if (_isGrounded && moveAxis == 0 && _rigidBody.velocity.y == 0)
-        {
-            _audioSource.Stop();
-        }
         
         if (moveAxis != 0)
         {
