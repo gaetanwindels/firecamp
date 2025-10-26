@@ -131,6 +131,11 @@ public class PlayerController : MonoBehaviour
         var computeSpeed = _isGettingOld ? speed * 0.7f : speed;
         computeSpeed = _isGettingVeryOld ? speed * 0.5f : computeSpeed;
         
+        if (_isExitingRock)
+        {
+            computeSpeed = 0;
+        }
+        
         _rigidBody.velocity = new Vector2(_rwPlayer.GetAxis("Move") * computeSpeed, _rigidBody.velocity.y);
         
         if (moveAxis != 0)
