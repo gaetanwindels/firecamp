@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
         ManageMove();
         ManageClimb();
         ManageJump();
+        ManageIdle();
         ManageAnimation();
         ManageRockPower();
     }
@@ -106,6 +107,16 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(originClimb, Vector2.right * direction * 0.2f, Color.red);
     }
 
+    void ManageIdle()
+    {
+        float moveAxis = _rwPlayer.GetAxis("Move");
+        
+        if (_isGrounded && !_isTouchingRock && moveAxis == 0 && _rigidBody.velocity.y == 0)
+        {
+            //_audioSource.Stop();
+        }    
+    }
+    
     void ManageMove()
     {
         if (!isActive)
@@ -117,14 +128,6 @@ public class PlayerController : MonoBehaviour
         
         if (_isGrounded)
         {   
-            _audioSource.clip = walkingSound;
-
-            if (!_audioSource.isPlaying)
-            {
-                _audioSource.loop = true;
-                _audioSource.Play(); 
-            }
-            
             _rigidBody.bodyType = RigidbodyType2D.Dynamic;
         }
 
@@ -155,8 +158,8 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded && _rwPlayer.GetButtonDown("Jump"))
         {
             _audioSource.clip = jumpingSound;
-            _audioSource.Play();
             _audioSource.loop = false;
+            _audioSource.Play();
             _rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
@@ -167,18 +170,30 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
+        var climbAxis = _rwPlayer.GetAxis("Climb");
         
         if (_isTouchingRock && !_rockPowerActivated && !_isGrounded)
         {
             _rigidBody.bodyType = RigidbodyType2D.Kinematic;
-            _audioSource.clip = climbingSound;
+            _rigidBody.velocity = new Vector2(0, climbAxis * climbSpeed);
+        }
 
-            if (!_audioSource.isPlaying)
-            {
-                _audioSource.loop = true;
-                _audioSource.Play();
-            }
-            _rigidBody.velocity = new Vector2(0, _rwPlayer.GetAxis("Climb") * climbSpeed);
+        if (_isTouchingRock)
+        {
+            // if (climbAxis == 0)
+            // {
+            //     Debug.Log("CLIMBING STOP");
+            //     _audioSource.Stop();
+            // }
+            // else
+            // {
+            //     Debug.Log("CLIMBING");
+            //     _audioSource.clip = climbingSound;
+            //     _audioSource.loop = true;
+            //     _audioSource.Play();
+            // }
+            
         }
 
         if (!_isTouchingRock)
