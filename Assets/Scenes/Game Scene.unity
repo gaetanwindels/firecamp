@@ -640,6 +640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backdrop: {fileID: 22447143}
   fireCamEvent: 0
+  transitionDelay: 2
   newPlayerToFollow: {fileID: 168072658}
   playerTrigger: {fileID: 163518290}
   objectsToActivate:
@@ -1232,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8556055985861099262, guid: a8bf93e86b3f99d42bf8232854f30230, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.0419142
+      value: 3.12
       objectReference: {fileID: 0}
     - target: {fileID: 8556055985861099262, guid: a8bf93e86b3f99d42bf8232854f30230, type: 3}
       propertyPath: m_LocalScale.z
@@ -1240,11 +1241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8556055985861099262, guid: a8bf93e86b3f99d42bf8232854f30230, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.544
+      value: 19.45
       objectReference: {fileID: 0}
     - target: {fileID: 8556055985861099262, guid: a8bf93e86b3f99d42bf8232854f30230, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.4547005
+      value: -7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8849,6 +8850,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7717230684857968136, guid: fb6fb4063b147024fa3ef21905e7fecc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 97058a04d0e3e344082448f368c674b3, type: 2}
     - target: {fileID: 9174927152958833051, guid: fb6fb4063b147024fa3ef21905e7fecc, type: 3}
       propertyPath: m_Name
       value: Adult 1
@@ -11291,6 +11296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backdrop: {fileID: 22447143}
   fireCamEvent: 0
+  transitionDelay: 2
   newPlayerToFollow: {fileID: 163518290}
   playerTrigger: {fileID: 9212200685299760910}
   objectsToActivate:
@@ -119444,6 +119450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2645845157633827304, guid: 8f22211d47e6659498bc9cf982b8d2a8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7641842268902808945, guid: bd3a6c8e454f77f4f8fac79d969e91ac, type: 3}
     - target: {fileID: 3719277510101401680, guid: 8f22211d47e6659498bc9cf982b8d2a8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -119524,6 +119534,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7490873289164638557, guid: 8f22211d47e6659498bc9cf982b8d2a8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7641842268902808945, guid: bd3a6c8e454f77f4f8fac79d969e91ac, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
