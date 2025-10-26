@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +24,12 @@ public class CustomSceneManager : MonoBehaviour
 
     public void GoToPlay()
     {
+        StartCoroutine(LoadScene());
+    }
+    
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("Game Scene");
     }
     
