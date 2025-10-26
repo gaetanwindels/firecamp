@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 
-public class HoleTransitionTrigger : MonoBehaviour
+public class FirecampTransitionTrigger1 : MonoBehaviour
 {
     [SerializeField] private GameObject backdrop;
-    [SerializeField] private GameObject playerFirecampSpawn;
     
+    [SerializeField] private PlayerController newPlayerToFollow;
+    [SerializeField] private PlayerController playerTrigger;
+    [SerializeField] private GameObject[] objectsToActivate;
     [SerializeField] private GameObject[] objectsToDeactivate;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,40 +20,36 @@ public class HoleTransitionTrigger : MonoBehaviour
         }
 
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player)
+        if (player == playerTrigger)
         {
             player.SetEnabled(false);
-            StartCoroutine(SpawnPlayer(player));
-            StartCoroutine(ActivatePlayer(player));
+            StartCoroutine(FollowPlayer());
             StartCoroutine(ActivateObjects());
         }
+    }
+    
+    IEnumerator FollowPlayer()
+    {
+        yield return new WaitForSeconds(1f);
+        FindFirstObjectByType<CinemachineVirtualCamera>().Follow = newPlayerToFollow.transform;
     }
 
     IEnumerator ActivateObjects()
     {
         yield return new WaitForSeconds(2f);
         
+        foreach (GameObject o in objectsToActivate)
+        {
+            Debug.Log("ACTIVATE OBJECT");
+            o.SetActive(true);
+        }
+        
         foreach (GameObject o in objectsToDeactivate)
         {
             o.SetActive(false);
         }
-        
-        if (backdrop)
-        {
-            backdrop.SetActive(false);
-        }
-    }
-    
-    IEnumerator SpawnPlayer(PlayerController player)
-    {
-        yield return new WaitForSeconds(1f);
-        player.transform.position = playerFirecampSpawn.transform.position;
-    }
-    
-    IEnumerator ActivatePlayer(PlayerController player)
-    {
-        yield return new WaitForSeconds(2.5f);
-        player.SetEnabled(true);
+                
+        newPlayerToFollow.SetEnabled(true);
         
         if (backdrop)
         {

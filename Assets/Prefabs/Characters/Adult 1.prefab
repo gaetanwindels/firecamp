@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &356738982467161438
+--- !u!1001 &3311480907948440134
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,9 +48,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3617360074363878141, guid: cf97cc0b9b4842344a980ab1c3fd4548, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 43c297dff8c080d43b2740a781988adc, type: 3}
+    - target: {fileID: 5110919533576920142, guid: cf97cc0b9b4842344a980ab1c3fd4548, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9212cc2699a0eef43a1b874f571e31aa, type: 2}
     - target: {fileID: 5955832342272785373, guid: cf97cc0b9b4842344a980ab1c3fd4548, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Adult 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
