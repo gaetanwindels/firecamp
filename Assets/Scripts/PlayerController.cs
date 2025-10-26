@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float exitRockForce = 5f;
     
     [SerializeField] private bool isActive;
+    [SerializeField] private bool isOld;
     
     // Cached variables
     private Rigidbody2D _rigidBody;
@@ -31,7 +32,21 @@ public class PlayerController : MonoBehaviour
     bool _rockPowerActivated;
     private float _previousMoveAxis;
     private bool _previousTouchingRock;
-    
+    private bool _isGettingOld;
+    private bool _isGettingVeryOld;
+
+    public bool IsGettingOld
+    {
+        get => _isGettingOld;
+        set => _isGettingOld = value;
+    }
+
+    public bool IsGettingVeryOld
+    {
+        get => _isGettingVeryOld;
+        set => _isGettingVeryOld = value;
+    }
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -50,7 +65,7 @@ public class PlayerController : MonoBehaviour
         ManageAnimation();
         ManageRockPower();
     }
-
+    
     public void SetEnabled(bool enabled2)
     {
         if (_rigidBody)
@@ -91,8 +106,11 @@ public class PlayerController : MonoBehaviour
         {
             _rigidBody.bodyType = RigidbodyType2D.Dynamic;
         }
+
+        var computeSpeed = _isGettingOld ? speed * 0.6f : speed;
+        computeSpeed = _isGettingVeryOld ? speed * 0.3f : computeSpeed;
         
-        _rigidBody.velocity = new Vector2(_rwPlayer.GetAxis("Move") * speed, _rigidBody.velocity.y);
+        _rigidBody.velocity = new Vector2(_rwPlayer.GetAxis("Move") * computeSpeed, _rigidBody.velocity.y);
         
         if (moveAxis != 0)
         {
@@ -103,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     void ManageJump()
     {
-        if (!isActive)
+        if (!isActive || isOld)
         {
             return;
         }
