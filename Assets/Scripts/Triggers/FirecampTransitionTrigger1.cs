@@ -9,6 +9,8 @@ namespace Triggers
     {
         [SerializeField] private GameObject backdrop;
         [SerializeField] private FireCampEvent fireCamEvent;
+        
+        [SerializeField] private float transitionDelay = 2f;
     
         [SerializeField] private PlayerController newPlayerToFollow;
         [SerializeField] private PlayerController playerTrigger;
@@ -20,16 +22,22 @@ namespace Triggers
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             if (player == playerTrigger)
             {
-                if (backdrop)
-                {
-                    backdrop.SetActive(true);
-                }
-
-                Debug.Log("TRIGGERED");
                 player.SetEnabled(false);
-                StartCoroutine(FollowPlayer());
-                StartCoroutine(ActivateObjects());
+                StartCoroutine(LaunchTransition());
             }
+        }
+        
+        IEnumerator LaunchTransition()
+        {
+            yield return new WaitForSeconds(transitionDelay);
+                
+            if (backdrop)
+            {
+                backdrop.SetActive(true);
+            }
+                
+            StartCoroutine(FollowPlayer());
+            StartCoroutine(ActivateObjects());
         }
     
         IEnumerator FollowPlayer()
