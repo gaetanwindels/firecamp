@@ -51,10 +51,14 @@ public class PlayerController : MonoBehaviour
         ManageRockPower();
     }
 
-    public void SetEnabled(bool enabled)
+    public void SetEnabled(bool enabled2)
     {
-        isActive = enabled;
-        _rigidBody.velocity = Vector2.zero;
+        if (_rigidBody)
+        {
+            _rigidBody.velocity = Vector2.zero;
+        }
+
+        isActive = enabled2;
     }
 
     void CheckTouching()
@@ -138,7 +142,10 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Sign(moveAxis), transform.localScale.y, transform.localScale.z);
         }
         
-        _animator.SetBool("IsRunning", _rigidBody.velocity.x != 0);
+        _animator.SetBool("IsRunning", moveAxis != 0 && isActive);
+        _animator.SetBool("IsJumping", !_isGrounded && !_isTouchingRock);
+        _animator.SetBool("IsOnRock", _isTouchingRock);
+        _animator.SetBool("IsClimbing", _isTouchingRock && _rigidBody.velocity.y != 0);
         
     }
     
