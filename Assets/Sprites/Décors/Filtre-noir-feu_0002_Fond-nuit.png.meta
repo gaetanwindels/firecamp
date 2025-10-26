@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bee893536e5d36a46b6dff77f76985de
+guid: bd3a6c8e454f77f4f8fac79d969e91ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4394878804337921041
-    second: Filtre noir feu_0
+      213: -7641842268902808945
+    second: Filtre-noir-feu_0002_Fond-nuit_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Filtre noir feu_0
+      name: Filtre-noir-feu_0002_Fond-nuit_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11c847bccfebdfc30800000000000000
-      internalID: 4394878804337921041
+      spriteID: f82ab74d1f8b2f590800000000000000
+      internalID: -7641842268902808945
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Filtre noir feu_0: 4394878804337921041
+      Filtre-noir-feu_0002_Fond-nuit_0: -7641842268902808945
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
