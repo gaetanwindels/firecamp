@@ -115,7 +115,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Animator Adulte 1
+  m_Name: Animator Adulte 1 _old_old
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsRunning
