@@ -1,6 +1,7 @@
 using System.Collections;
 using Cinemachine;
 using DefaultNamespace;
+using Unity.Properties;
 using UnityEngine;
 
 namespace Triggers
@@ -9,6 +10,7 @@ namespace Triggers
     {
         [SerializeField] private GameObject backdrop;
         [SerializeField] private FireCampEvent fireCamEvent;
+        [SerializeField] private GameObject cinematic;
         
         [SerializeField] private float transitionDelay = 2f;
     
@@ -22,6 +24,7 @@ namespace Triggers
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             if (player == playerTrigger)
             {
+                cinematic.SetActive(true);
                 player.SetEnabled(false);
                 StartCoroutine(LaunchTransition());
             }
@@ -61,7 +64,8 @@ namespace Triggers
             }
                 
             newPlayerToFollow.SetEnabled(true);
-        
+            cinematic.SetActive(false);
+            
             if (backdrop)
             {
                 backdrop.SetActive(false);

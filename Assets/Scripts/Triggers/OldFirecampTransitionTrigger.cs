@@ -23,6 +23,8 @@ namespace Triggers
         
         [SerializeField] private GameObject[] objectsToActivate;
         [SerializeField] private GameObject[] objectsToDeactivate;
+        
+        [SerializeField] private GameObject cinematic;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -34,7 +36,7 @@ namespace Triggers
                     backdrop.SetActive(true);
                 }
                 
-                Debug.Log("TRIGGERED OLD");
+                cinematic.SetActive(true);
                 player.SetEnabled(false);
                 StartCoroutine(ActivateChilds());
                 StartCoroutine(ActivateObjects());
@@ -44,7 +46,7 @@ namespace Triggers
         IEnumerator ActivateChilds()
         {
             yield return new WaitForSeconds(3f);
-            
+            cinematic.SetActive(false);
             PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
 
             foreach (PlayerController player in players)
