@@ -715,6 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backdrop: {fileID: 22447143}
   fireCamEvent: 0
+  cinematic: {fileID: 0}
   transitionDelay: 2
   newPlayerToFollow: {fileID: 168072658}
   playerTrigger: {fileID: 163518290}
@@ -10653,6 +10654,7 @@ MonoBehaviour:
   objectsToDeactivate:
   - {fileID: 1139056862}
   - {fileID: 195750778}
+  cinematic: {fileID: 0}
 --- !u!1 &1036919029
 GameObject:
   m_ObjectHideFlags: 0
@@ -11446,6 +11448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backdrop: {fileID: 22447143}
   fireCamEvent: 0
+  cinematic: {fileID: 0}
   transitionDelay: 2
   newPlayerToFollow: {fileID: 163518290}
   playerTrigger: {fileID: 9212200685299760910}
@@ -119870,6 +119873,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3719277510101401680, guid: 8f22211d47e6659498bc9cf982b8d2a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505824968597369426, guid: 8f22211d47e6659498bc9cf982b8d2a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826434172278767975, guid: 8f22211d47e6659498bc9cf982b8d2a8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7490873289164638557, guid: 8f22211d47e6659498bc9cf982b8d2a8, type: 3}

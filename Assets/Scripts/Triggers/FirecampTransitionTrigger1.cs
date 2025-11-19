@@ -24,6 +24,7 @@ namespace Triggers
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             if (player == playerTrigger)
             {
+                //Debug.Log("Triggered");
                 cinematic.SetActive(true);
                 player.SetEnabled(false);
                 StartCoroutine(LaunchTransition());
